@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\ezgim\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ezgim\\.nuget\\packages"
+    ]
+  }
+}

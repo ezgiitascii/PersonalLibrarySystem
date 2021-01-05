@@ -1,0 +1,88 @@
+﻿@page
+@model LibMan.Pages.ListBookModel
+
+@{
+    ViewData["Title"] = "ListBook";
+    Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
+}
+
+<h1>ListBook</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form method="get" action="Search">
+    <input type="text" name="find" />
+    <input type="submit" value="Search" />
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Book:
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Translator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Description)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].Categories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].ReadingStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BookAndUserVM.Book)
+        {
+            <tr>
+
+                <th>
+                    <img src="~/images/@item.ImagePath" height="200" />
+                </th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Translator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Publisher)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categories)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReadingStatus)
+                </td>
+                <td>
+                    <a asp-page="./EditBook" asp-route-id="@item.BookId">Edit</a> |
+                    <a asp-page="./DetailsBook" asp-route-id="@item.BookId">Details</a> |
+                    <a asp-page="./DeleteBook" asp-route-id="@item.BookId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

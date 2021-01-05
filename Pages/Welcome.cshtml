@@ -1,0 +1,20 @@
+﻿@page
+@model LibMan.Pages.WelcomeModel
+@{
+    Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Welcome</title>
+</head>
+<body>
+    <h3>Welcome @Model.Username</h3>
+    <a asp-page="Welcome" asp-page-handler="Logout">Logout</a>
+    <a asp-page="ListBook" asp-route-userid="@Model.UserId" class="btn btn-info form-control"> ListBook </a>
+    <a asp-page="ListUser" asp-route-userid="@Model.UserId" class="btn btn-info form-control"> ListUser </a>
+    
+
+</body>
+</html>
